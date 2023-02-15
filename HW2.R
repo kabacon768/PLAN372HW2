@@ -76,4 +76,33 @@ By_Inspector = group_by(data, INSPECTOR) %>%
 ggplot(By_Inspector, aes(x = INSPECTOR, y = Average_score)) +
   geom_col()
 
+#Thomas Jumalon may be slightly harsher than the rest. James Smith seems to be the highest rater.
+
+#Looking at sample sizes to exlpain the last two questions
+
+#first by city
+By_City_sample_size = group_by(data, CITY) %>%
+  summarize(
+    Sample_Size= n())
+
+By_City_sample_size
+#I immediately see outliers. Angier only has one. Clayton only has 4. Morrisville only has 2, etc.. 
+  
+#Next by Year
+By_Year_sample_size = group_by(data, Years_Opened) %>%
+  summarize(
+    Sample_Size= n())
+
+By_Year_sample_size
+
+#Only one restaurant was open for 36 years. There are many many NA values without a year. 
+
+#Next by Inspector
+By_Inspector_sample_size = group_by(data, INSPECTOR) %>%
+  summarize(
+    Sample_Size= n())
+
+By_Inspector_sample_size
+#There are several inspectors with only a few ratings. For example, James Smith only has 1. And intially I thought he was the highest rater.
+
 
