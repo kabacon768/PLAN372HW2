@@ -72,6 +72,7 @@ By_Inspector = group_by(data, INSPECTOR) %>%
   summarize(
     Average_score=mean(SCORE))
 
+View(By_Inspector[1:20,])
 #Visualizing
 ggplot(By_Inspector, aes(x = INSPECTOR, y = Average_score)) +
   geom_col()
@@ -191,6 +192,9 @@ RESTBy_Year_sample_size = group_by(Restaurant_Data, Years_Opened) %>%
     Sample_Size= n())
 
 RESTBy_Year_sample_size
+
+ggplot(RESTBy_Year_sample_size, aes(x = Years_Opened, y = Sample_Size)) +
+  geom_col()
 
 #less variation here. There are many many NA values without a year. 
 
