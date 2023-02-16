@@ -119,9 +119,11 @@ By_Type_Average_score
 #Filtering out everything but restaurants
 Restaurant_Data = filter(data, FACILITYTYPE == "Restaurant")
 
+#Creating a histogram with just restaurants
+ggplot(data=Restaurant_Data, aes(SCORE)) +
+  geom_histogram()
 
-
-
+#The distribitions do not look remarkably different- same range and general trend. 
 
 
 #grouping by years opened to see if average score was different
